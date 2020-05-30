@@ -9,20 +9,13 @@ pipeline {
                 sh '''
                     echo "PATH = ${PATH}"
                     echo "M2_HOME = ${M2_HOME}"
+                    clean install package
                 '''
                 }
                 }
             }
         }
 
-        stage ('Build') {
-            steps {
-                
-                sh 'clean install package' 
-                
-                
-            }
-            
-        }
+        w
     }
 }
