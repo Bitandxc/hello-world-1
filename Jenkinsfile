@@ -1,7 +1,7 @@
 pipeline {
     agent any
-    def mvnHome = tool 'M3'
-                withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] )
+    tools {
+        maven 'M3'
     stages {
         stage ('Initialize') {
             steps {
