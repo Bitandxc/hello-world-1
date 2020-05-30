@@ -4,10 +4,12 @@ pipeline {
         stage ('Initialize') {
             steps {
                 def mvnHome = tool 'M3'
+                withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ){
                 sh '''
                     echo "PATH = ${PATH}"
                     echo "M2_HOME = ${M2_HOME}"
                 '''
+                }
             }
         }
 
