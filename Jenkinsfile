@@ -17,8 +17,13 @@ pipeline {
 
         stage ('Build') {
             steps {
+                script{
+                def mvnHome = tool 'M3'
+                withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ){
                 def mvnHome = tool 'M3'
                 sh 'clean install package' 
+                }
+                }
             }
             
         }
