@@ -12,13 +12,17 @@ pipeline {
                     '''
                     }
         }
-            stage ('Build'){
+         stage ('Build'){
              steps {
                 sh '''
                     mvn -f pom.xml clean install package
                    '''
                 }
                 }
+        stage ('Docker container creation'){
+            agent{ dockerfile true }
+                  
+            
             }
     }
 
