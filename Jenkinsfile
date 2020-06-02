@@ -15,7 +15,7 @@ pipeline {
             stage ('Build'){
              steps {
                 sh '''
-                    mvn -f pom.xml clean install
+                    mvn -f pom.xml clean install package
                    '''
                 }
                 }
