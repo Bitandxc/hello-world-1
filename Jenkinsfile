@@ -5,6 +5,7 @@ pipeline {
     }
     environment {
     registry = "bguha2501/jenkinspipelinedocker"
+    registryCredential = ‘dockerhub’
     dockerImage = ''
     }
     stages {
