@@ -22,7 +22,7 @@ pipeline {
         stage ('Docker container creation'){
             agent{ dockerfile true }
             steps {
-                node{
+                script{
                     checkout scm
                     def customImage = docker.build("my-image:${env.BUILD_ID}")
                     customImage.push('latest')
