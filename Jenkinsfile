@@ -24,10 +24,8 @@ pipeline {
                 }
                 }
         stage ('Docker container creation'){
-            agent{ dockerfile true }
             steps {
-                script{
-                    checkout scm
+                script{ 
                     dockerImage = docker.build registry + ":$BUILD_NUMBER"
           
                 }
