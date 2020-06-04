@@ -1,8 +1,7 @@
 pipeline {
    environment {
-      registry = "bguha2501/jenkinspipelinedocker"
-      registryCredential = 'dockerhub'
-      dockerImage = ''
+      Image = "bguha2501/jenkinspipelinedocker"
+      REGISTRY = 'https://hub.docker.com/'
     }
     agent any
     tools {
@@ -26,10 +25,10 @@ pipeline {
                 }
                 }
         stage ('Docker container creation'){
-            agent any
             steps {
-                sh 'docker build -t bguha2501/jenkinspipelinedocker:latest .'
-                    
+               script {
+                  image = docker.build("${IMAGE}")
+               }
           
                 }
             }
