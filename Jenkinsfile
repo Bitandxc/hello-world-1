@@ -2,7 +2,6 @@ pipeline {
     agent any
     tools {
         maven 'M3'
-        docker 'D2'
     }
     environment {
     registry = "bguha2501/jenkinspipelinedocker"
