@@ -26,9 +26,10 @@ pipeline {
                 }
                 }
         stage ('Docker container creation'){
+            agent any
             steps {
-                script{ 
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                sh 'docker build -t bguha2501/jenkinspipelinedocker:latest .'
+                    
           
                 }
             }
