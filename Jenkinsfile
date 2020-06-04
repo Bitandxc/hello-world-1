@@ -3,6 +3,10 @@ pipeline {
     tools {
         maven 'M3'
     }
+    environment {
+    registry = "bguha2501/jenkinspipelinedocker"
+    dockerImage = ''
+    }
     stages {
         stage ('Initialize') {
             steps {
@@ -24,13 +28,20 @@ pipeline {
             steps {
                 script{
                     checkout scm
-                    def customImage = docker.build("my-image:${env.BUILD_ID}")
-                    customImage.push('latest')
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
           
                 }
             }
         }
-                  
+      stage('Deploy Image') {
+          steps{
+            script {
+               docker.withRegistry( '') {
+               dockerImage.push()
+               }
+            }
+          }
+      }
             
             }
     }
