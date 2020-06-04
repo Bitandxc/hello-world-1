@@ -1,13 +1,14 @@
 pipeline {
+   environment {
+      registry = "bguha2501/jenkinspipelinedocker"
+      registryCredential = 'dockerhub'
+      dockerImage = ''
+    }
     agent any
     tools {
         maven 'M3'
     }
-    environment {
-    registry = "bguha2501/jenkinspipelinedocker"
-    registryCredential = 'dockerhub'
-    dockerImage = ''
-    }
+  
     stages {
         stage ('Initialize') {
             steps {
