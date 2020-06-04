@@ -21,7 +21,7 @@ pipeline {
                 }
         stage ('Docker container creation'){
             agent{ dockerfile true }
-            
+        }
                   
             
             }
