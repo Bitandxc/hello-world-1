@@ -27,7 +27,7 @@ pipeline {
         stage ('Docker Build'){
             steps {
                script {
-                  image = docker.build("${IMAGE}", "-f Dockerfile .)
+                  image = docker.build("${IMAGE}", "-f Dockerfile .")
                }
           
                 }
