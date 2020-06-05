@@ -24,7 +24,7 @@ pipeline {
                    '''
                 }
                 }
-        stage ('Docker container creation'){
+        stage ('Docker Build'){
             steps {
                script {
                   image = docker.build("${IMAGE}")
