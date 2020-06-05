@@ -1,4 +1,5 @@
 FROM java:8-jdk-alpine
+cd /
 COPY /target/webapp.war /usr/app/webapp.war
 WORKDIR /usr/app
 EXPOSE 8080
