@@ -32,6 +32,11 @@ pipeline {
           
                 }
             }
+       stage ('Deploy Docker Image'){
+          steps {
+             image.push()
+          }
+       }
         
     
       }
