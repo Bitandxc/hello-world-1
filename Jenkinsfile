@@ -28,15 +28,12 @@ pipeline {
             steps {
                script {
                   image = docker.build("${IMAGE}", "-f Dockerfile .")
+                  image.push()
                }
           
                 }
             }
-       stage ('Deploy Docker Image'){
-          steps {
-             image.push()
-          }
-       }
+      
         
     
       }
