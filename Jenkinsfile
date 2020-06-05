@@ -1,6 +1,6 @@
 pipeline {
    environment {
-      Image = "bguha2501/jenkinspipelinedocker"
+      Image = 'bguha2501/jenkinspipelinedocker'
       REGISTRY = 'https://hub.docker.com/'
     }
     agent any
@@ -33,17 +33,10 @@ pipeline {
                 }
             }
         
-      stage('Deploy Image') {
-          steps{
-            script {
-               docker.withRegistry( '') {
-               dockerImage.push()
-               }
-            }
-          }
+    
       }
             
-            }
+   }
     }
 
 
