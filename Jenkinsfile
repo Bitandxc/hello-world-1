@@ -24,7 +24,7 @@ pipeline {
                    '''
                 }
                 }
-        stages ('Docker Build'){
+        stage ('Docker Build'){
             steps {
                script {
                   image = docker.build("${IMAGE}", "-f Dockerfile .")
@@ -32,7 +32,9 @@ pipeline {
           
                 }
            steps{
-                  sh 'docker push bguha2501/jenkinspipelinedocker: latest'
+                  sh ''' 
+                       docker push bguha2501/jenkinspipelinedocker: latest'
+                     '''
            }
             }
       
