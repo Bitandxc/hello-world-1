@@ -40,9 +40,12 @@
       </plugin>
 
       <plugin>
-        <artifactId>maven-release-plugin</artifactId>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.6.0</version>
         <configuration>
-          <autoVersionSubmodules>true</autoVersionSubmodules>
+            <source>1.8</source>
+            <target>1.8</target>
         </configuration>
       </plugin>
 
