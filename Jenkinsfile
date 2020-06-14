@@ -28,10 +28,12 @@ pipeline {
             steps {
                script {
                   image = docker.build("${IMAGE}", "-f Dockerfile .")
-                  image.push()
                }
           
                 }
+           steps{
+                  sh 'docker push bguha2501/jenkinspipelinedocker: latest'
+           }
             }
       
         
