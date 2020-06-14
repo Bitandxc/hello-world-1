@@ -2,6 +2,7 @@ pipeline {
    environment {
       registry = 'bguha2501/jenkinspipelinedocker'
       registrycredential = 'dockerhub'
+      dockerImage= ''
     }
     agent any
     tools {
@@ -27,7 +28,7 @@ pipeline {
         stage ('Docker Build'){
             steps {
                script {
-                   def customImage = docker.build("my-image:${env.BUILD_ID}")
+                  dockerImage = docker.build registry + ":$BUILD_NUMBER"
                }
                }
                 }
