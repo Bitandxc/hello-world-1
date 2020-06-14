@@ -27,12 +27,14 @@ pipeline {
                 }
         stage ('Docker Build'){
             steps {
+               echo 'Starting building docker Image'
                script {
-                  dockerImage = docker.build registry + ":$BUILD_NUMBER"
-               }
+                    def customImage = docker.build("my-image:${env.BUILD_ID}")
+                  
+               
                }
                 }
-      
+        }
       
         
     
