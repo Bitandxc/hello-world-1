@@ -1,7 +1,7 @@
 pipeline {
    environment {
       registry = 'bguha2501/jenkinspipelinedocker'
-      registrycredential = 'dockerhub'
+      registrycredential = 'Dockerhub'
       dockerImage= ''
     }
     agent any
