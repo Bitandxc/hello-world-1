@@ -1,7 +1,7 @@
 pipeline {
    environment {
-      Image = 'bguha2501/jenkinspipelinedocker'
-      REGISTRY = 'https://hub.docker.com/'
+      registry = 'bguha2501/jenkinspipelinedocker'
+      registrycredential = 'dockerhub'
     }
     agent any
     tools {
@@ -27,10 +27,19 @@ pipeline {
         stage ('Docker Build'){
             steps {
                script {
-                  image = docker.build("${IMAGE}", "-f Dockerfile .")
+                  dockerImage = docker.build registry + ":$BUILD_NUMBER"
                }
-            }
+               }
                 }
+       stage('Deploy Image') {
+      steps{
+        script {
+          docker.withRegistry( '', registryCredential ) {
+          dockerImage.push()
+          }
+        }
+      }
+    }
        
       
         
