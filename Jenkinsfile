@@ -31,13 +31,7 @@ pipeline {
                }
             }
                 }
-       stage('Dockerhub push'){
-          steps {
-                  sh ''' 
-                       docker push bguha2501/jenkinspipelinedocker: latest'
-                     '''
-           }
-            }
+       
       
         
     
