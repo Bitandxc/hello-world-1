@@ -29,7 +29,7 @@ pipeline {
         stage('Deploy Image') {
             steps{
                script{
-                  docker.withRegistry('https://hub.docker.com/repository/docker/bguha2501/jenkinspipelinedocker'){
+                  docker.withRegistry('https://hub.docker.com/repository/docker/bguha2501/jenkinspipelinedocker', registrycredential){
                    dockerImage.push()
             }
         }
