@@ -21,7 +21,7 @@ pipeline {
         stage ('Docker Build'){
             steps {
                sh '''
-                    docker build .
+                    docker build -t registry .
                   '''
                   }
                 }
