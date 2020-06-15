@@ -28,7 +28,7 @@ pipeline {
         
         stage('Deploy Image') {
             steps{
-                  sh 'docker login'
+                  sh 'docker login -u bguha2501 -p Anom@2501'
                   sh 'docker push ${registry}'
             }
         }
