@@ -30,7 +30,8 @@ pipeline {
             steps{
                withDockerRegistry([ credentialsId: ${registrycredential}, url: "https://hub.docker.com/repository/docker/bguha2501/jenkinspipelinedocker" ]){
                  sh '''
-                 docker push ${registry}
+                     docker push ${registry}
+                    '''
             }
         }
       }
