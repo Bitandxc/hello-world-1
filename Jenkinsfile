@@ -16,14 +16,16 @@ pipeline {
                     mvn -f pom.xml clean install package
                    '''
                 }
-                }
+         }
     
         stage ('Docker Build'){
             steps {
-               sh "docker build -t registry + ":$BUILD_NUMBER" ."
+               sh '''
+                    docker build -t registry + ":$BUILD_NUMBER" .
+                  '''
                   }
                 }
-        }
+        
         stage('Deploy Image') {
             steps{
              script {
@@ -35,6 +37,6 @@ pipeline {
     }
  }
             
-   
+} 
 
 
